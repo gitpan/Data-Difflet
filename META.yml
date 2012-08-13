@@ -20,10 +20,14 @@ no_index:
 provides:
   Data::Difflet:
     file: lib/Data/Difflet.pm
-    version: 0.01
+    version: 0.02
+  Test::Difflet:
+    file: lib/Test/Difflet.pm
+    version: 0
 requires:
   Term::ANSIColor: 0
+  Test::More: 0.96
   parent: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.01
+version: 0.02
