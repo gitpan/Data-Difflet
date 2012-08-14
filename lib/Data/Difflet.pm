@@ -2,7 +2,7 @@ package Data::Difflet;
 use strict;
 use warnings FATAL => 'recursion';
 use 5.008008;
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 use Term::ANSIColor;
 use Data::Dumper;
 
@@ -37,6 +37,7 @@ sub compare {
     local $BUFFER = '';
     no warnings 'redefine';
     local *_ = sub($) { $self->ddf(@_) };
+    local $Term::ANSIColor::EACHLINE = "\n";
     $self->_compare(@_);
     return $BUFFER;
 }
