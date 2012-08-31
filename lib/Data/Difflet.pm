@@ -2,7 +2,7 @@ package Data::Difflet;
 use strict;
 use warnings FATAL => 'recursion';
 use 5.008008;
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 use Term::ANSIColor;
 use Data::Dumper;
 
@@ -20,7 +20,7 @@ sub new {
     }, $class;
 }
 
-sub _($) { die "Do not call directly"; }
+sub _f($) { die "Do not call directly"; }
 
 sub ddf {
     my $self = shift;
@@ -36,7 +36,7 @@ sub compare {
     local $LEVEL = 0;
     local $BUFFER = '';
     no warnings 'redefine';
-    local *_ = sub($) { $self->ddf(@_) };
+    local *_f = sub($) { $self->ddf(@_) };
     local $Term::ANSIColor::EACHLINE = "\n";
     $self->_compare(@_);
     return $BUFFER;
@@ -56,13 +56,13 @@ sub _compare {
                             $self->_print("%s => %s,\n", $self->ddf($key), $self->ddf($a->{$key}));
                         } else {
                             if (ref($a->{$key}) or ref($b->{$key})) {
-                                $self->_print("%s => ", _($key));
+                                $self->_print("%s => ", _f($key));
                                 local $LEVEL = $LEVEL + 1;
                                 $self->_compare($a->{$key}, $b->{$key});
                                 $self->_print(",\n");
                             } else {
-                                $self->_updated("%s => %s,", _($key), _($a->{$key}));
-                                $self->_comment(" # != %s,\n", _($b->{$key}));
+                                $self->_updated("%s => %s,", _f($key), _f($a->{$key}));
+                                $self->_comment(" # != %s,\n", _f($b->{$key}));
                             }
                         }
                     } else {
@@ -90,8 +90,8 @@ sub _compare {
                 my $i = 0;
                 while (1) {
                     if ($i<$alen && $i<$blen) { # both
-                        if (_($a->[$i]) eq _($b->[$i])) {
-                            $self->_print("%s,\n", _($a->[$i]));
+                        if (_f($a->[$i]) eq _f($b->[$i])) {
+                            $self->_print("%s,\n", _f($a->[$i]));
                         } else {
                             if (ref($a->[$i]) or ref($b->[$i])) {
                                 local $LEVEL = $LEVEL + 1;
@@ -102,9 +102,9 @@ sub _compare {
                             }
                         }
                     } elsif ($i<$alen) {
-                        $self->_inserted("%s,\n", _ $a->[$i]);
+                        $self->_inserted("%s,\n", _f $a->[$i]);
                     } elsif ($i<$blen) {
-                        $self->_deleted("%s,\n", _ $b->[$i]);
+                        $self->_deleted("%s,\n", _f $b->[$i]);
                     } else {
                         last;
                     }
@@ -170,7 +170,7 @@ Data::Difflet - Ultra special pretty cute diff generator Mark II
     use Data::Difflet;
 
     my $difflet = Data::Difflet->new();
-    $difflet->compare(
+    print $difflet->compare(
         {
             a => 2,
             c => 5,
