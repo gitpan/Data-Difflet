@@ -41,7 +41,7 @@
    "provides" : {
       "Data::Difflet" : {
          "file" : "lib/Data/Difflet.pm",
-         "version" : "0.04"
+         "version" : "0.05"
       },
       "Test::Difflet" : {
          "file" : "lib/Test/Difflet.pm",
@@ -54,5 +54,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.04"
+   "version" : "0.05"
 }

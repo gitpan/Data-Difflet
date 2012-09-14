@@ -20,7 +20,7 @@ no_index:
 provides:
   Data::Difflet:
     file: lib/Data/Difflet.pm
-    version: 0.04
+    version: 0.05
   Test::Difflet:
     file: lib/Test/Difflet.pm
     version: 0
@@ -30,4 +30,4 @@ requires:
   parent: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.04
+version: 0.05
