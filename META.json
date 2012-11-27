@@ -4,7 +4,7 @@
       "Tokuhiro Matsuno E<lt>tokuhirom AAJKLFJEF@ GMAIL COME<gt>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Module::Build version 0.4001, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Module::Build version 0.4003, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "perl_5"
    ],
@@ -34,14 +34,15 @@
          "requires" : {
             "Term::ANSIColor" : "0",
             "Test::More" : "0.96",
-            "parent" : "0"
+            "parent" : "0",
+            "perl" : "5.008008"
          }
       }
    },
    "provides" : {
       "Data::Difflet" : {
          "file" : "lib/Data/Difflet.pm",
-         "version" : "0.05"
+         "version" : "0.06"
       },
       "Test::Difflet" : {
          "file" : "lib/Test/Difflet.pm",
@@ -54,5 +55,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.05"
+   "version" : "0.06"
 }
