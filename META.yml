@@ -9,7 +9,7 @@ configure_requires:
   CPAN::Meta::Prereqs: 0
   Module::Build: 0.38
 dynamic_config: 0
-generated_by: 'Minilla/v0.4.3, CPAN::Meta::Converter version 2.130880'
+generated_by: 'Minilla/v0.5.5, CPAN::Meta::Converter version 2.130880'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -27,7 +27,7 @@ no_index:
 provides:
   Data::Difflet:
     file: lib/Data/Difflet.pm
-    version: 0.08
+    version: 0.09
   Test::Difflet:
     file: lib/Test/Difflet.pm
 requires:
@@ -39,10 +39,11 @@ resources:
   bugtracker: https://github.com/tokuhirom/Data-Difflet/issues
   homepage: https://github.com/tokuhirom/Data-Difflet
   repository: git://github.com/tokuhirom/Data-Difflet.git
-version: 0.08
+version: 0.09
 x_contributors:
   - 'Syohei YOSHIDA <syohex@gmail.com>'
   - 'Olaf Alders <olaf@wundersolutions.com>'
   - 'Kozaki, Tsuneaki <kozaki.tsuneaki@gmail.com>'
   - 'Takumi Akiyama <t.akiym@gmail.com>'
+  - 'HIROSE Masaaki <hirose31@gmail.com>'
   - 'tokuhirom <tokuhirom@gmail.com>'
